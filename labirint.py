@@ -11,7 +11,6 @@ class Labirint(object):
     def __validate_size(self, size):
         if(size < 10):
             size = 10
-        print(size)
         self.size = size
     
     def __generate_matrix(self):
