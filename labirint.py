@@ -1,4 +1,5 @@
 import random
+from helper import is_even
 class Labirint:
 
     __MIN_SIZE = 11
@@ -18,9 +19,8 @@ class Labirint:
         is_lower_than_min_size = size < self.__MIN_SIZE
         if(is_lower_than_min_size): 
             size = self.__MIN_SIZE
-        else:
-            is_size_even = size % 2 == 0
-            if is_size_even:
+        else:  
+            if is_even(size):
                 size += 1
         return size
     
