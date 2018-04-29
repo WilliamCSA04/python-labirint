@@ -31,7 +31,7 @@ class Labirint:
                 not_a_corner = (index_row != 0 or index_column != 0) and (index_row != 0 or index_column != border) and (index_row != border or index_column != 0) and (index_row != border or index_column != border) 
                 is_a_valid_position = (index_row is 0 or index_column is 0 or index_row is border or index_column is border) and not_a_corner                
                 can_generate_a_initial_ending_position = is_a_valid_position and should_generate
-                if can_generate_a_initial_position:
+                if can_generate_a_initial_ending_position:
                     matrix[index_row][index_column] = "B"
                     matrix[index_column][index_row] = "E"
                     return matrix
