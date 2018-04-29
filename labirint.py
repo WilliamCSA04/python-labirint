@@ -2,7 +2,7 @@ class Labirint(object):
 
     def __init__(self, size):
         self.__validate_size(size)
-        self.matrix = [["-" if x is 0 or y is 0 or x is self.size-1 or y is self.size-1 else " " for x in range(self.size)] for y in range(self.size)]
+        self.matrix = self.__generate_matrix()
 
     def print_labirint(self):
         for x in self.matrix:
@@ -13,3 +13,8 @@ class Labirint(object):
             size = 10
         print(size)
         self.size = size
+    
+    def __generate_matrix(self):
+        size = self.size
+        matrix = [["-" if x is 0 or y is 0 or x is size-1 or y is size-1 else " " for x in range(size)] for y in range(size)]
+        return matrix
