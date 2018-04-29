@@ -1,4 +1,4 @@
-class Labirint(object):
+class Labirint:
 
     def __init__(self, size):
         self.__validate_size(size)
