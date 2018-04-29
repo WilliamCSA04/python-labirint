@@ -1,6 +1,8 @@
 import random
 class Labirint:
 
+    __MIN_SIZE = 10
+
     def __init__(self, size):
         self.__validate_size(size)
         self.matrix = self.__generate_matrix()
@@ -13,8 +15,8 @@ class Labirint:
             print(row)
 
     def __validate_size(self, size):
-        if(size < 10):
-            size = 10
+        if(size < self.__MIN_SIZE):
+            size = self.__MIN_SIZE
         self.size = size
     
     def __generate_matrix(self):
