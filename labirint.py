@@ -16,5 +16,5 @@ class Labirint(object):
     
     def __generate_matrix(self):
         size = self.size
-        matrix = [["-" if x is 0 or y is 0 or x is size-1 or y is size-1 else " " for x in range(size)] for y in range(size)]
+        matrix = [[" " for x in range(size)] for y in range(size)]
         return matrix
