@@ -27,6 +27,7 @@ class Labirint:
 
     def __generate_beginning_ending_of_labirint(self, matrix):
         border = self.size - 1
+        beginning_done = False
         for index_row, x in enumerate(matrix):
             for index_column, y in enumerate(x):
                 should_generate = random.random() > 0.9
@@ -34,9 +35,13 @@ class Labirint:
                 is_a_valid_position = (index_row is 0 or index_column is 0 or index_row is border or index_column is border) and not_a_corner                
                 can_generate_a_initial_ending_position = is_a_valid_position and should_generate
                 if can_generate_a_initial_ending_position:
-                    matrix[index_row][index_column] = "B"
-                    matrix[index_column][index_row] = "E"
-                    return matrix
+                    if beginning_done:
+                        matrix[index_column][index_row] = "E"
+                        return matrix
+                    else:
+                        matrix[index_row][index_column] = "B"
+                        beginning_done = True
+                    
         matrix[0][1] = "B"
         matrix[border-1][border] = "E"
         return matrix
