@@ -6,7 +6,10 @@ class Labirint(object):
 
     def print_labirint(self):
         for x in self.matrix:
-            print(x)
+            row = ""
+            for y in x:
+                row += y + " "
+            print(row)
 
     def __validate_size(self, size):
         if(size < 10):
