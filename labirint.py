@@ -25,11 +25,11 @@ class Labirint:
         self.size = size
     
     def __generate_matrix(self):
-        matrix = self.__generate_external_walls()
+        matrix = self.__generate_matrix_with_external_walls()
         matrix = self.__generate_beginning_ending_positions_of_labirint(matrix)
         return matrix
 
-    def __generate_external_walls(self):
+    def __generate_matrix_with_external_walls(self):
         size = self.size
         border = size - 1
         matrix = [["%" if x is 0 or y is 0 or x is border or y is border else " " for x in range(size)] for y in range(size)]
