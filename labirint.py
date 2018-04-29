@@ -58,11 +58,13 @@ class Labirint:
         border = self.size - 1
         if has_to_create_beginning:           
             matrix[0][1] = "B"
-        value = matrix[border-1][border]
-        is_beginning = value == "B"
-        if is_beginning:
-            matrix[border][border-1] = "E"
-        else:
             matrix[border-1][border] = "E"
+        else:
+            value = matrix[border-1][border]
+            is_beginning = value == "B"
+            if is_beginning:
+                matrix[border][border-1] = "E"
+            else:
+                matrix[border-1][border] = "E"
         return matrix
 
