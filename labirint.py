@@ -19,9 +19,8 @@ class Labirint:
         is_lower_than_min_size = size < self.__MIN_SIZE
         if(is_lower_than_min_size): 
             size = self.__MIN_SIZE
-        else:  
-            if is_even(size):
-                size += 1
+        elif is_even(size):  
+            size += 1
         return size
     
     def __generate_matrix(self):
