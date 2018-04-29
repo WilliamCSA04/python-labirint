@@ -4,7 +4,7 @@ class Labirint:
     __MIN_SIZE = 11
 
     def __init__(self, size):
-        self.__validate_size(size)
+        self.size = self.__validate_size(size)
         self.matrix = self.__generate_matrix()
 
     def print_labirint(self):
@@ -22,7 +22,7 @@ class Labirint:
             is_size_even = size % 2 == 0
             if is_size_even:
                 size += 1
-        self.size = size
+        return size
     
     def __generate_matrix(self):
         matrix = self.__generate_matrix_with_external_walls()
