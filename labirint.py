@@ -51,7 +51,13 @@ class Labirint:
                     else:
                         matrix[index_row][index_column] = "B"
                         beginning_done = True
-        if not beginning_done:           
+        has_to_create_beginning = not beginning_done
+        matrix = self.__generate_default_beginning_ending_positions(matrix, has_to_create_beginning)
+        return matrix
+
+    def __generate_default_beginning_ending_positions(self, matrix, has_to_create_beginning):
+        border = self.size - 1
+        if has_to_create_beginning:           
             matrix[0][1] = "B"
         value = matrix[border-1][border]
         is_beginning = value == "B"
