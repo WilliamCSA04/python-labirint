@@ -21,7 +21,7 @@ class Labirint:
     
     def __generate_matrix(self):
         matrix = self.__generate_external_walls()
-        matrix = self.__generate_beginning_ending_of_labirint(matrix)
+        matrix = self.__generate_beginning_ending_positions_of_labirint(matrix)
         return matrix
 
     def __generate_external_walls(self):
@@ -30,7 +30,7 @@ class Labirint:
         matrix = [["%" if x is 0 or y is 0 or x is border or y is border else " " for x in range(size)] for y in range(size)]
         return matrix
 
-    def __generate_beginning_ending_of_labirint(self, matrix):
+    def __generate_beginning_ending_positions_of_labirint(self, matrix):
         border = self.size - 1
         beginning_done = False
         for index_row, x in enumerate(matrix):
@@ -48,6 +48,11 @@ class Labirint:
                         beginning_done = True
         if not beginning_done:           
             matrix[0][1] = "B"
-        matrix[border-1][border] = "E"
+        value = matrix[border-1][border]
+        is_beginning = value == "B"
+        if is_beginning:
+            matrix[border][border-1] = "E"
+        else:
+            matrix[border-1][border] = "E"
         return matrix
 
