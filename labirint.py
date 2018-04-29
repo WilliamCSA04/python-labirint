@@ -46,8 +46,8 @@ class Labirint:
                     else:
                         matrix[index_row][index_column] = "B"
                         beginning_done = True
-                    
-        matrix[0][1] = "B"
+        if not beginning_done:           
+            matrix[0][1] = "B"
         matrix[border-1][border] = "E"
         return matrix
 
