@@ -15,8 +15,8 @@ class Labirint:
             print(row)
 
     def __validate_size(self, size):
-        is_higher_or_equals_to_min_size = size < self.__MIN_SIZE
-        if(is_higher_or_equals_to_min_size): 
+        is_lower_than_min_size = size < self.__MIN_SIZE
+        if(is_lower_than_min_size): 
             size = self.__MIN_SIZE
         else:
             is_size_even = size % 2 == 0
