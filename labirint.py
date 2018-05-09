@@ -74,4 +74,13 @@ class Labirint:
         return matrix
 
     def __generate_internal_walls(self, matrix):
+        border = self.size - 1
+        for index_row, row in enumerate(matrix):
+            for index_column, cell in enumerate(row):
+                should_ignore = (is_odd(index_column) and is_odd(index_row)) or index_column is border or index_row is border or index_column is 0 or index_row is 0
+                if should_ignore:
+                    continue
+                should_generate_wall = random.random() > 0.4
+                if should_generate_wall:
+                    matrix[index_row][index_column] = "%"               
         return matrix
