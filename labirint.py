@@ -26,6 +26,7 @@ class Labirint:
     def __generate_matrix(self):
         matrix = self.__generate_matrix_with_external_walls()
         matrix = self.__generate_beginning_ending_positions_of_labirint(matrix)
+        matrix = self.__generate_paths(matrix)
         return matrix
 
     def __generate_matrix_with_external_walls(self):
@@ -68,3 +69,5 @@ class Labirint:
                 matrix[border-1][border] = "E"
         return matrix
 
+    def __generate_paths(self, matrix):
+        return matrix
