@@ -93,7 +93,6 @@ class Labirint:
             path = []
         return matrix
 
-    #TOFIX: Dont generate walls correctly
     def __generate_internal_walls(self, matrix):
         border = self.size - 1
         for index_row, row in enumerate(matrix):
