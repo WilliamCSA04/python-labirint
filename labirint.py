@@ -70,6 +70,32 @@ class Labirint:
         return matrix
 
     def __generate_paths(self, matrix):
+        paths = []
+        initial = 1
+        final = self.size - 1
+        path = []
+        increment_by = 2
+        for i in range(initial, final, increment_by):
+            beginning_column = i
+            beginning_row = 1
+            coordinate = [beginning_row, beginning_column]
+            cell_value = matrix[coordinate[0]][coordinate[1]]
+            should_interate = cell_value == " "
+            while(should_interate):
+                matrix[coordinate[0]][coordinate[1]] = "@"
+                path.append(coordinate)
+                new_coordinate = next_step_randomly(coordinate)
+                is_a_valid_coordinate = new_coordinate[0] == new_coordinate[1] == 1
+                if is_a_valid_coordinate:
+                    new_coordinate[1] = random.randint(-1, 0)
+                is_a_valid_coordinate = new_coordinate[0] == new_coordinate[1] == 0
+                if is_a_valid_coordinate:
+                    new_coordinate[1] = new_coordinate[1]-1
+                coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
+                cell_value = matrix[coordinate[0]][coordinate[1]]
+                should_interate = cell_value is " "
+            paths.append(path)
+            path = []
         return matrix
 
     #TOFIX: Dont generate walls correctly
