@@ -84,13 +84,7 @@ class Labirint:
             while(should_interate):
                 matrix[coordinate[0]][coordinate[1]] = "@"
                 path.append(coordinate)
-                new_coordinate = next_step_randomly(coordinate)
-                is_a_valid_coordinate = new_coordinate[0] == new_coordinate[1] == 1
-                if is_a_valid_coordinate:
-                    new_coordinate[1] = random.randint(-1, 0)
-                is_a_valid_coordinate = new_coordinate[0] == new_coordinate[1] == 0
-                if is_a_valid_coordinate:
-                    new_coordinate[1] = new_coordinate[1]-1
+                new_coordinate = next_step_randomly_without_diagonals(coordinate)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
                 should_interate = cell_value is " "
