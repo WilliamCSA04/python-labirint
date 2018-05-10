@@ -70,7 +70,6 @@ class Labirint:
         return matrix
 
     def __generate_paths(self, matrix):
-        matrix = self.__generate_internal_walls(matrix)
         return matrix
 
     #TOFIX: Dont generate walls correctly
