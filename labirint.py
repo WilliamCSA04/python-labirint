@@ -27,6 +27,7 @@ class Labirint:
         matrix = self.__generate_matrix_with_external_walls()
         matrix = self.__generate_beginning_ending_positions_of_labirint(matrix)
         matrix = self.__generate_paths(matrix)
+        matrix = self.__generate_internal_walls(matrix)
         return matrix
 
     def __generate_matrix_with_external_walls(self):
@@ -97,8 +98,8 @@ class Labirint:
         border = self.size - 1
         for index_row, row in enumerate(matrix):
             for index_column, cell in enumerate(row):
-                should_ignore = (is_odd(index_column) and is_odd(index_row)) or index_column is border or index_row is border or index_column is 0 or index_row is 0
-                if should_ignore:
-                    continue
-                matrix[index_row][index_column] = "%"               
+                if cell == " ":
+                    matrix[index_row][index_column] = "%"
+                elif cell == "@":
+                    matrix[index_row][index_column] = " "
         return matrix
