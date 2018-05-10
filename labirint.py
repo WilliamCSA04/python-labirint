@@ -70,6 +70,7 @@ class Labirint:
                 matrix[border-1][border] = "E"
         return matrix
 
+    # TODO: Update this method to always generate a valid B to E path
     def __generate_paths(self, matrix):
         paths = []
         initial = 1
