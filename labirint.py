@@ -72,10 +72,8 @@ class Labirint:
 
     # TODO: Update this method to always generate a valid B to E path
     def __generate_paths(self, matrix):
-        paths = []
         initial = 1
         final = self.size - 1
-        path = []
         increment_by = 2
         for i in range(initial, final, increment_by):
             beginning_column = i
@@ -85,13 +83,10 @@ class Labirint:
             should_interate = cell_value == " "
             while(should_interate):
                 matrix[coordinate[0]][coordinate[1]] = "@"
-                path.append(coordinate)
                 new_coordinate = next_step_randomly_without_diagonals(coordinate)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
                 should_interate = cell_value is " " or cell_value is "@"
-            paths.append(path)
-            path = []
         return matrix
 
     def __generate_internal_walls(self, matrix):
