@@ -7,6 +7,7 @@ def next_step_randomly_without_diagonals(coordinates):
         next_row = 0
     return [next_row, next_column]
 
+# TODO: Change this methods to return a array of positions
 def corner_direction(cellNorth, cellSouth, cellEast, cellWest):
     if(cellNorth == cellEast):
         return "NE"
