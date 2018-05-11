@@ -1,5 +1,7 @@
 import random
 from helper import *
+from labirintHelper import *
+
 class Labirint:
 
     __MIN_SIZE = 11
