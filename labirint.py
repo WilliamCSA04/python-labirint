@@ -1,6 +1,7 @@
 import random
 from helper import *
 from labirintHelper import *
+from labirintService import *
 
 class Labirint:
 
