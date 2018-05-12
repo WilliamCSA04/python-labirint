@@ -9,7 +9,7 @@ def next_step_randomly_without_diagonals(coordinates):
         return [next_row, next_column]
     return random.choice(coordinates)
 
-def new_valid_coordenates(cell_north, cell_south, cell_east, cell_west):
+def new_valid_coordinates(cell_north, cell_south, cell_east, cell_west):
     validator_character = "@"
     is_a_vertical_path = validator_character == cell_north == cell_south
     is_a_horizontal_path = validator_character == cell_west == cell_east
