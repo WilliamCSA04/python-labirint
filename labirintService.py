@@ -41,17 +41,25 @@ class LabirintService:
         possibilities = []
         empty_cell = " "
         if(cell_north == empty_cell):
-            north = [-1, 0]
-            possibilities.append(north)
+            is_valid = self.__validate_possible_new_coordinate(actual_coordinate, 0, -2)
+            if(is_valid):
+                north = [-1, 0]
+                possibilities.append(north)
         if(cell_west == empty_cell):
-            west = [0, -1]
-            possibilities.append(west)
+            is_valid = self.__validate_possible_new_coordinate(actual_coordinate, 1, -2)
+            if(is_valid):
+                west = [0, -1]
+                possibilities.append(west)
         if(cell_east == empty_cell):
-            east = [0, 1]
-            possibilities.append(east)
+            is_valid = self.__validate_possible_new_coordinate(actual_coordinate, 1, 2)
+            if(is_valid):
+                east = [0, 1]
+                possibilities.append(east)
         if(cell_south == empty_cell):
-            south = [1, 0]
-            possibilities.append(south)
+            is_valid = self.__validate_possible_new_coordinate(actual_coordinate, 1, 2)
+            if(is_valid):
+                south = [1, 0]
+                possibilities.append(south)
         return possibilities
 
     def __validate_possible_new_coordinate(self, actual_coordinate, coordinate_index, number_of_position):
@@ -60,4 +68,4 @@ class LabirintService:
         is_a_matrix_index = next_neighbor_index >= 0 and next_neighbor_index < len(self.matrix)
         if(is_a_matrix_index):
             return empty_cell == self.cell_value(actual_coordinate[0], next_neighbor_index)
-        return True
+        return False
