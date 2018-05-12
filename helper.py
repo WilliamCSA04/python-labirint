@@ -1,5 +1,8 @@
 import random
 
+# Define is_even: Check if the number is even
+# Parameter => number: A integer value
+# Return: True if is even, false otherwise
 def is_even(number):
     return number % 2 == 0
 
