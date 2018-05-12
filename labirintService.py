@@ -53,3 +53,11 @@ class LabirintService:
             south = [1, 0]
             possibilities.append(south)
         return possibilities
+
+    def __validate_possible_new_coordinate(self, actual_coordinate, coordinate_index, number_of_position):
+        empty_cell = " "
+        next_neighbor_index = actual_coordinate[coordinate_index] + number_of_position
+        is_a_matrix_index = next_neighbor_index >= 0 and next_neighbor_index < len(self.matrix)
+        if(is_a_matrix_index):
+            return empty_cell == self.cell_value(actual_coordinate[0], next_neighbor_index)
+        return True
