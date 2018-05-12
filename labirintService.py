@@ -12,3 +12,8 @@ class LabirintService:
         if coordinate[0] is len(self.matrix):
             return None
         return self.matrix[coordinate[0]+1, self.matrix[1]]
+
+    def east(self, coordinate):
+        if coordinate[1] is len(self.matrix)-1:
+            return None
+        return self.matrix[coordinate[0], self.matrix[1]+1]
