@@ -87,7 +87,7 @@ class Labirint:
             should_interate = cell_value == " "
             while(should_interate):
                 matrix[coordinate[0]][coordinate[1]] = "@"
-                possible_coordinates = labirintService.new_valid_coordinates([coordinate[0]][coordinate[1]])
+                possible_coordinates = labirintService.new_valid_coordinates(coordinate)
                 new_coordinate = next_step_randomly_without_diagonals(possible_coordinates)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
