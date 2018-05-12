@@ -1,11 +1,13 @@
 import random
 
 def next_step_randomly_without_diagonals(coordinates):
-    next_column = random.randint(-1, 1)
-    next_row = random.randint(0, 1)
-    if next_column is 1 or next_column is -1:
-        next_row = 0
-    return [next_row, next_column]
+    if coordinates is None:
+        next_column = random.randint(-1, 1)
+        next_row = random.randint(0, 1)
+        if next_column is 1 or next_column is -1:
+            next_row = 0
+        return [next_row, next_column]
+    return random.choice(coordinates)
 
 def new_valid_coordenates(cell_north, cell_south, cell_east, cell_west):
     validator_character = "@"
