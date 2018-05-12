@@ -6,6 +6,9 @@ import random
 def is_even(number):
     return number % 2 == 0
 
+# Define is_odd: Check if the number is odd.
+# Parameter => number: A integer value.
+# Return: True if is odd, false otherwise.
 def is_odd(number):
     return number % 2 == 1
 
