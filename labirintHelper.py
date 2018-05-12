@@ -1,7 +1,7 @@
 import random
 
 def next_step_randomly_without_diagonals(coordinate = None):
-    if coordinate is None:
+    if coordinate is None or len(coordinate) is 0:
         next_column = random.randint(-1, 1)
         next_row = random.randint(0, 1)
         if next_column is 1 or next_column is -1:
