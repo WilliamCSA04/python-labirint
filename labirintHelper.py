@@ -7,14 +7,25 @@ def next_step_randomly_without_diagonals(coordinates):
         next_row = 0
     return [next_row, next_column]
 
-# TODO: Change this methods to return a array of positions
-def corner_direction(cellNorth, cellSouth, cellEast, cellWest):
-    if(cellNorth == cellEast):
-        return "NE"
-    if(cellNorth == cellWest):
-        return "NW"
-    if(cellSouth == cellWest):
-        return "SW"
-    if(cellSouth == cellEast):
-        return "SE"
-    return None
+def new_coordenate_outside_of_path(cell_north, cell_south, cell_east, cell_west):
+    validator_character = "@"
+    is_a_vertical_path = validator_character == cell_north == cell_south
+    is_a_horizontal_path = validator_character == cell_west == cell_east
+    is_a_path =  is_a_vertical_path or is_a_horizontal_path
+    if is_a_path:
+        return None
+    possibilities = []
+    empty_cell = " "
+    if(cell_north == empty_cell):
+        north = [-1, -1]
+        possibilities.append(north)
+    if(cell_west == empty_cell):
+        west = [0, -1]
+        possibilities.append(west)
+    if(cell_west == empty_cell):
+        east = [0, 1]
+        possibilities.append(east)
+    if(cell_south == cell_east):
+        south = [1, 1]
+        possibilities.append(south)
+    return possibilities
