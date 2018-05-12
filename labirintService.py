@@ -6,3 +6,4 @@ class LabirintService:
     def north(self, coordinate):
         if coordinate[0] is 0:
             return None
+        return self.matrix[coordinate[0]-1, self.matrix[1]]
