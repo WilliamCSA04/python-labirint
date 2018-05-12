@@ -1,9 +1,10 @@
 from helper import invert_zero_one
+import copy
 
 class LabirintService:
 
     def __init__(self, matrix):
-        self.matrix = matrix
+        self.matrix = copy.deepcopy(matrix)
 
     def north(self, coordinate):
         if coordinate[0] is 0:
@@ -64,6 +65,7 @@ class LabirintService:
                 possibilities.append(south)
         return possibilities
 
+    #TOFIX: Sometimes causes infinity loop
     def __validate_possible_new_coordinate(self, actual_coordinate, coordinate_index, side):
         empty_cell = " "
         wall_cell = "%"
@@ -82,7 +84,7 @@ class LabirintService:
             second_neighbor = self.cell_value(coordinate[0], coordinate[1])
             first_neighbor_is_valid = first_neighbor == empty_cell or first_neighbor == wall_cell
             second_neighbor_is_valid = second_neighbor == empty_cell or second_neighbor == wall_cell
-            is_valid = first_neighbor_is_valid == second_neighbor_is_valid
+            is_valid = first_neighbor_is_valid and second_neighbor_is_valid
             return is_valid
         if(valid_first_neighbor):
             coordinate[coordinate_index] = first_next_neighbor_index
