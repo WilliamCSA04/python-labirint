@@ -24,6 +24,8 @@ class LabirintService:
             return None
         return self.matrix[coordinate[0]][coordinate[1]-1]
 
+    def cell_value(self, row, column):
+        return self.matrix[row][column]
     
     def new_valid_coordinates(self, actual_coordinate):
         validator_character = "@"
