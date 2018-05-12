@@ -89,7 +89,7 @@ class Labirint:
                 west = [coordinate[0], coordinate[1]-1]
                 east = [coordinate[0], coordinate[1]+1]
                 south = [coordinate[1], coordinate[1]]
-                new_coordinate = new_coordenate(north, south, east, west)
+                new_coordinate = new_valid_coordenates(north, south, east, west)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
                 should_interate = cell_value is " " or cell_value is "@"
