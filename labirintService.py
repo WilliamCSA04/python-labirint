@@ -25,8 +25,12 @@ class LabirintService:
         return self.matrix[coordinate[0], self.matrix[1]-1]
 
     
-    def new_valid_coordinates(self, cell_north, cell_south, cell_east, cell_west):
+    def new_valid_coordinates(self, actual_coordinate):
         validator_character = "@"
+        cell_north = self.north(actual_coordinate)
+        cell_south = self.south(actual_coordinate)
+        cell_east = self.east(actual_coordinate)
+        cell_west = self.west(actual_coordinate)
         is_a_vertical_path = validator_character == cell_north == cell_south
         is_a_horizontal_path = validator_character == cell_west == cell_east
         is_a_path =  is_a_vertical_path or is_a_horizontal_path

@@ -1,7 +1,7 @@
 import random
 from helper import *
 from labirintHelper import *
-from labirintService import *
+from labirintService import LabirintService
 
 class Labirint:
 
@@ -78,6 +78,7 @@ class Labirint:
         initial = 1
         final = self.size - 1
         increment_by = 2
+        labirintService = LabirintService(matrix)
         for i in range(initial, final, increment_by):
             beginning_column = i
             beginning_row = 1
@@ -86,11 +87,7 @@ class Labirint:
             should_interate = cell_value == " "
             while(should_interate):
                 matrix[coordinate[0]][coordinate[1]] = "@"
-                north = [coordinate[0]-1, coordinate[1]-1]
-                west = [coordinate[0], coordinate[1]-1]
-                east = [coordinate[0], coordinate[1]+1]
-                south = [coordinate[1], coordinate[1]]
-                possible_coordinates = new_valid_coordinates(north, south, east, west)
+                possible_coordinates = labirintService.new_valid_coordinates([coordinate[0]][coordinate[1]])
                 new_coordinate = next_step_randomly_without_diagonals(possible_coordinates)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
