@@ -49,7 +49,7 @@ class LabirintService:
         if(cell_east == empty_cell):
             east = [0, 1]
             possibilities.append(east)
-        if(cell_south == cell_east):
+        if(cell_south == empty_cell):
             south = [1, 0]
             possibilities.append(south)
         return possibilities
