@@ -5,3 +5,6 @@ def is_even(number):
 
 def is_odd(number):
     return number % 2 == 1
+
+def invert_zero_one(number):
+    return int(not bool(number))
