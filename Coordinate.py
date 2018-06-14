@@ -1,7 +1,7 @@
 from helper import invert_zero_one
 import copy
 
-class LabirintService:
+class Coordinate:
 
     def __init__(self, matrix):
         self.matrix = copy.deepcopy(matrix)

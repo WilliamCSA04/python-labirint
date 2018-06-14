@@ -1,7 +1,7 @@
 import random
 from helper import *
 from labirintHelper import *
-from labirintService import LabirintService
+from Coordinate import Coordinate
 
 class Labirint:
 
@@ -78,7 +78,7 @@ class Labirint:
         initial = 1
         final = self.size - 1
         increment_by = 2
-        labirintService = LabirintService(matrix)
+        Coordinate = Coordinate(matrix)
         for i in range(initial, final, increment_by):
             beginning_column = i
             beginning_row = 1
@@ -92,7 +92,7 @@ class Labirint:
                 avoid_infinity_loop_counter -= 1
                 if(avoid_infinity_loop_counter == 0):
                     break
-                possible_coordinates = labirintService.new_valid_coordinates(coordinate)
+                possible_coordinates = Coordinate.new_valid_coordinates(coordinate)
                 new_coordinate = next_step_randomly_without_diagonals(possible_coordinates)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
