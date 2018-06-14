@@ -124,3 +124,6 @@ class Coordinate:
 
     def __has_south(self, coordinate):
         return coordinate is len(self.matrix)-1
+
+    def __has_west(self, coordinate):
+        return coordinate[1] is 0
