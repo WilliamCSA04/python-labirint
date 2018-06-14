@@ -78,7 +78,7 @@ class Labirint:
         initial = 1
         final = self.size - 1
         increment_by = 2
-        coordinate = Coordinate(matrix)
+        coordinates = Coordinate(matrix)
         for i in range(initial, final, increment_by):
             beginning_column = i
             beginning_row = 1
@@ -87,12 +87,11 @@ class Labirint:
             should_interate = cell_value == " "
             avoid_infinity_loop_counter = 20;
             while(should_interate):
-                print(coordinate)
                 matrix[coordinate[0]][coordinate[1]] = "@"
                 avoid_infinity_loop_counter -= 1
                 if(avoid_infinity_loop_counter == 0):
                     break
-                possible_coordinates = coordinate.new_valid_coordinates(coordinate)
+                possible_coordinates = coordinates.new_valid_coordinates(coordinate)
                 new_coordinate = next_step_randomly_without_diagonals(possible_coordinates)
                 coordinate = [new_coordinate[0] + coordinate[0], new_coordinate[1] + coordinate[1]]                    
                 cell_value = matrix[coordinate[0]][coordinate[1]]
