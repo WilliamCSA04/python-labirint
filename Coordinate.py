@@ -127,3 +127,6 @@ class Coordinate:
 
     def __has_west(self, coordinate):
         return coordinate[1] is 0
+
+    def __has_east(self, coordinate):
+        return coordinate[1] is len(self.matrix)-1
