@@ -118,3 +118,6 @@ class Coordinate:
             is_valid = empty_cell ==  second_neighbor or wall_cell == second_neighbor
             return is_valid
         return False
+
+    def __has_north(self, coordinate):
+        return coordinate[0] is 0
