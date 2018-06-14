@@ -27,6 +27,11 @@ class LabirintService:
             return None
         return self.cell_value(coordinate[0], coordinate[1]-1)
 
+    def northwest(self, coordinate):
+        if coordinate[0] is 0 or coordinate[1] is 0:
+            return None
+        return self.cell_value(coordinate[0]-1, coordinate[1]-1) 
+
     def northeast(self, coordinate):
         if coordinate[0] is 0 or coordinate[1] is len(self.matrix)-1:
             return None
