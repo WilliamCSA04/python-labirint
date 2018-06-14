@@ -120,4 +120,7 @@ class Coordinate:
         return False
 
     def __has_north(self, coordinate):
-        return coordinate[0] is 0
+        return coordinate is 0
+
+    def __has_south(self, coordinate):
+        return coordinate is len(self.matrix)-1
